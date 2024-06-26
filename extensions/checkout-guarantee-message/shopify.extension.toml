@@ -1,0 +1,15 @@
+api_version = "2023-10"
+
+[capabilities]
+api_access = true
+network_access = true
+block_progress = true
+
+[[extensions]]
+type = "ui_extension"
+name = "Guarantee Message"
+handle = "guarantee-message"
+[[extensions.targeting]]
+target = "purchase.thank-you.block.render"
+module = "./src/Checkout.jsx"
+export = "guaranteeBlock"
