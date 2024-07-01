@@ -9,7 +9,7 @@
   var __getProtoOf = Object.getPrototypeOf;
   var __hasOwnProp = Object.prototype.hasOwnProperty;
   var __propIsEnum = Object.prototype.propertyIsEnumerable;
-  var __defNormalProp = (obj, key, value2) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value: value2 }) : obj[key] = value2;
+  var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
   var __spreadValues = (a, b) => {
     for (var prop in b || (b = {}))
       if (__hasOwnProp.call(b, prop))
@@ -55,16 +55,16 @@
   ));
   var __async = (__this, __arguments, generator) => {
     return new Promise((resolve, reject) => {
-      var fulfilled = (value2) => {
+      var fulfilled = (value) => {
         try {
-          step(generator.next(value2));
+          step(generator.next(value));
         } catch (e) {
           reject(e);
         }
       };
-      var rejected = (value2) => {
+      var rejected = (value) => {
         try {
-          step(generator.throw(value2));
+          step(generator.throw(value));
         } catch (e) {
           reject(e);
         }
@@ -348,31 +348,31 @@
           function isArray(a) {
             return isArrayImpl(a);
           }
-          function typeName(value2) {
+          function typeName(value) {
             {
               var hasToStringTag = typeof Symbol === "function" && Symbol.toStringTag;
-              var type = hasToStringTag && value2[Symbol.toStringTag] || value2.constructor.name || "Object";
+              var type = hasToStringTag && value[Symbol.toStringTag] || value.constructor.name || "Object";
               return type;
             }
           }
-          function willCoercionThrow(value2) {
+          function willCoercionThrow(value) {
             {
               try {
-                testStringCoercion(value2);
+                testStringCoercion(value);
                 return false;
               } catch (e) {
                 return true;
               }
             }
           }
-          function testStringCoercion(value2) {
-            return "" + value2;
+          function testStringCoercion(value) {
+            return "" + value;
           }
-          function checkKeyStringCoercion(value2) {
+          function checkKeyStringCoercion(value) {
             {
-              if (willCoercionThrow(value2)) {
-                error("The provided key is an unsupported type %s. This value must be coerced to a string before before using it here.", typeName(value2));
-                return testStringCoercion(value2);
+              if (willCoercionThrow(value)) {
+                error("The provided key is an unsupported type %s. This value must be coerced to a string before before using it here.", typeName(value));
+                return testStringCoercion(value);
               }
             }
           }
@@ -1169,19 +1169,19 @@
             var dispatcher = resolveDispatcher();
             return dispatcher.useImperativeHandle(ref, create, deps);
           }
-          function useDebugValue(value2, formatterFn) {
+          function useDebugValue(value, formatterFn) {
             {
               var dispatcher = resolveDispatcher();
-              return dispatcher.useDebugValue(value2, formatterFn);
+              return dispatcher.useDebugValue(value, formatterFn);
             }
           }
           function useTransition() {
             var dispatcher = resolveDispatcher();
             return dispatcher.useTransition();
           }
-          function useDeferredValue(value2) {
+          function useDeferredValue(value) {
             var dispatcher = resolveDispatcher();
-            return dispatcher.useDeferredValue(value2);
+            return dispatcher.useDeferredValue(value);
           }
           function useId() {
             var dispatcher = resolveDispatcher();
@@ -2430,9 +2430,9 @@
         module.exports = function $$$reconciler($$$hostConfig) {
           var exports2 = {};
           "use strict";
-          var React2 = require_react();
+          var React5 = require_react();
           var Scheduler = require_scheduler();
-          var ReactSharedInternals = React2.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+          var ReactSharedInternals = React5.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
           var suppressWarning = false;
           function setSuppressWarning(newSuppressWarning) {
             {
@@ -2478,8 +2478,8 @@
           function get(key) {
             return key._reactInternals;
           }
-          function set(key, value2) {
-            key._reactInternals = value2;
+          function set(key, value) {
+            key._reactInternals = value;
           }
           var enableNewReconciler = false;
           var enableLazyContextPropagation = false;
@@ -3402,13 +3402,13 @@
             }
             index--;
           }
-          function push(cursor, value2, fiber) {
+          function push(cursor, value, fiber) {
             index++;
             valueStack[index] = cursor.current;
             {
               fiberStack[index] = fiber;
             }
-            cursor.current = value2;
+            cursor.current = value;
           }
           var warnedAboutMissingGetChildContext;
           {
@@ -5340,8 +5340,8 @@
             };
             var setToSortedString = function(set2) {
               var array = [];
-              set2.forEach(function(value2) {
-                array.push(value2);
+              set2.forEach(function(value) {
+                array.push(value);
               });
               return array.sort().join(", ");
             };
@@ -5500,39 +5500,39 @@
               pendingLegacyContextWarning = /* @__PURE__ */ new Map();
             };
           }
-          function typeName(value2) {
+          function typeName(value) {
             {
               var hasToStringTag = typeof Symbol === "function" && Symbol.toStringTag;
-              var type = hasToStringTag && value2[Symbol.toStringTag] || value2.constructor.name || "Object";
+              var type = hasToStringTag && value[Symbol.toStringTag] || value.constructor.name || "Object";
               return type;
             }
           }
-          function willCoercionThrow(value2) {
+          function willCoercionThrow(value) {
             {
               try {
-                testStringCoercion(value2);
+                testStringCoercion(value);
                 return false;
               } catch (e) {
                 return true;
               }
             }
           }
-          function testStringCoercion(value2) {
-            return "" + value2;
+          function testStringCoercion(value) {
+            return "" + value;
           }
-          function checkKeyStringCoercion(value2) {
+          function checkKeyStringCoercion(value) {
             {
-              if (willCoercionThrow(value2)) {
-                error("The provided key is an unsupported type %s. This value must be coerced to a string before before using it here.", typeName(value2));
-                return testStringCoercion(value2);
+              if (willCoercionThrow(value)) {
+                error("The provided key is an unsupported type %s. This value must be coerced to a string before before using it here.", typeName(value));
+                return testStringCoercion(value);
               }
             }
           }
-          function checkPropStringCoercion(value2, propName) {
+          function checkPropStringCoercion(value, propName) {
             {
-              if (willCoercionThrow(value2)) {
-                error("The provided `%s` prop is an unsupported type %s. This value must be coerced to a string before before using it here.", propName, typeName(value2));
-                return testStringCoercion(value2);
+              if (willCoercionThrow(value)) {
+                error("The provided `%s` prop is an unsupported type %s. This value must be coerced to a string before before using it here.", propName, typeName(value));
+                return testStringCoercion(value);
               }
             }
           }
@@ -5742,13 +5742,13 @@
                 error("Context can only be read while React is rendering. In classes, you can read it in the render method or getDerivedStateFromProps. In function components, you can read it directly in the function body, but not inside Hooks like useReducer() or useMemo().");
               }
             }
-            var value2 = isPrimaryRenderer ? context._currentValue : context._currentValue2;
+            var value = isPrimaryRenderer ? context._currentValue : context._currentValue2;
             if (lastFullyObservedContext === context)
               ;
             else {
               var contextItem = {
                 context,
-                memoizedValue: value2,
+                memoizedValue: value,
                 next: null
               };
               if (lastContextDependency === null) {
@@ -5764,7 +5764,7 @@
                 lastContextDependency = lastContextDependency.next = contextItem;
               }
             }
-            return value2;
+            return value;
           }
           var concurrentQueues = null;
           function pushConcurrentUpdateQueue(queue) {
@@ -6230,7 +6230,7 @@
             }
           }
           var fakeInternalInstance = {};
-          var emptyRefsObject = new React2.Component().refs;
+          var emptyRefsObject = new React5.Component().refs;
           var didWarnAboutStateAssignmentForComponent;
           var didWarnAboutUninitializedState;
           var didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate;
@@ -6892,15 +6892,15 @@
                 if (current2 !== null && current2.ref !== null && typeof current2.ref === "function" && current2.ref._stringRef === stringRef) {
                   return current2.ref;
                 }
-                var ref = function(value2) {
+                var ref = function(value) {
                   var refs = resolvedInst.refs;
                   if (refs === emptyRefsObject) {
                     refs = resolvedInst.refs = {};
                   }
-                  if (value2 === null) {
+                  if (value === null) {
                     delete refs[stringRef];
                   } else {
-                    refs[stringRef] = value2;
+                    refs[stringRef] = value;
                   }
                 };
                 ref._stringRef = stringRef;
@@ -8488,7 +8488,7 @@
             var effectDeps = deps !== null && deps !== void 0 ? deps.concat([ref]) : null;
             return updateEffectImpl(Update, Layout, imperativeHandleEffect.bind(null, create, ref), effectDeps);
           }
-          function mountDebugValue(value2, formatterFn) {
+          function mountDebugValue(value, formatterFn) {
           }
           var updateDebugValue = mountDebugValue;
           function mountCallback(callback, deps) {
@@ -8535,31 +8535,31 @@
             hook.memoizedState = [nextValue, nextDeps];
             return nextValue;
           }
-          function mountDeferredValue(value2) {
+          function mountDeferredValue(value) {
             var hook = mountWorkInProgressHook();
-            hook.memoizedState = value2;
-            return value2;
+            hook.memoizedState = value;
+            return value;
           }
-          function updateDeferredValue(value2) {
+          function updateDeferredValue(value) {
             var hook = updateWorkInProgressHook();
             var resolvedCurrentHook = currentHook;
             var prevValue = resolvedCurrentHook.memoizedState;
-            return updateDeferredValueImpl(hook, prevValue, value2);
+            return updateDeferredValueImpl(hook, prevValue, value);
           }
-          function rerenderDeferredValue(value2) {
+          function rerenderDeferredValue(value) {
             var hook = updateWorkInProgressHook();
             if (currentHook === null) {
-              hook.memoizedState = value2;
-              return value2;
+              hook.memoizedState = value;
+              return value;
             } else {
               var prevValue = currentHook.memoizedState;
-              return updateDeferredValueImpl(hook, prevValue, value2);
+              return updateDeferredValueImpl(hook, prevValue, value);
             }
           }
-          function updateDeferredValueImpl(hook, prevValue, value2) {
+          function updateDeferredValueImpl(hook, prevValue, value) {
             var shouldDeferValue = !includesOnlyNonUrgentLanes(renderLanes);
             if (shouldDeferValue) {
-              if (!objectIs(value2, prevValue)) {
+              if (!objectIs(value, prevValue)) {
                 var deferredLane = claimNextTransitionLane();
                 currentlyRenderingFiber$1.lanes = mergeLanes(currentlyRenderingFiber$1.lanes, deferredLane);
                 markSkippedUpdateLanes(deferredLane);
@@ -8571,8 +8571,8 @@
                 hook.baseState = false;
                 markWorkInProgressReceivedUpdate();
               }
-              hook.memoizedState = value2;
-              return value2;
+              hook.memoizedState = value;
+              return value;
             }
           }
           function startTransition(setPending, callback, options) {
@@ -8871,15 +8871,15 @@
                   ReactCurrentDispatcher$1.current = prevDispatcher;
                 }
               },
-              useDebugValue: function(value2, formatterFn) {
+              useDebugValue: function(value, formatterFn) {
                 currentHookNameInDev = "useDebugValue";
                 mountHookTypesDev();
                 return mountDebugValue();
               },
-              useDeferredValue: function(value2) {
+              useDeferredValue: function(value) {
                 currentHookNameInDev = "useDeferredValue";
                 mountHookTypesDev();
-                return mountDeferredValue(value2);
+                return mountDeferredValue(value);
               },
               useTransition: function() {
                 currentHookNameInDev = "useTransition";
@@ -8975,15 +8975,15 @@
                   ReactCurrentDispatcher$1.current = prevDispatcher;
                 }
               },
-              useDebugValue: function(value2, formatterFn) {
+              useDebugValue: function(value, formatterFn) {
                 currentHookNameInDev = "useDebugValue";
                 updateHookTypesDev();
                 return mountDebugValue();
               },
-              useDeferredValue: function(value2) {
+              useDeferredValue: function(value) {
                 currentHookNameInDev = "useDeferredValue";
                 updateHookTypesDev();
-                return mountDeferredValue(value2);
+                return mountDeferredValue(value);
               },
               useTransition: function() {
                 currentHookNameInDev = "useTransition";
@@ -9079,15 +9079,15 @@
                   ReactCurrentDispatcher$1.current = prevDispatcher;
                 }
               },
-              useDebugValue: function(value2, formatterFn) {
+              useDebugValue: function(value, formatterFn) {
                 currentHookNameInDev = "useDebugValue";
                 updateHookTypesDev();
                 return updateDebugValue();
               },
-              useDeferredValue: function(value2) {
+              useDeferredValue: function(value) {
                 currentHookNameInDev = "useDeferredValue";
                 updateHookTypesDev();
-                return updateDeferredValue(value2);
+                return updateDeferredValue(value);
               },
               useTransition: function() {
                 currentHookNameInDev = "useTransition";
@@ -9183,15 +9183,15 @@
                   ReactCurrentDispatcher$1.current = prevDispatcher;
                 }
               },
-              useDebugValue: function(value2, formatterFn) {
+              useDebugValue: function(value, formatterFn) {
                 currentHookNameInDev = "useDebugValue";
                 updateHookTypesDev();
                 return updateDebugValue();
               },
-              useDeferredValue: function(value2) {
+              useDeferredValue: function(value) {
                 currentHookNameInDev = "useDeferredValue";
                 updateHookTypesDev();
-                return rerenderDeferredValue(value2);
+                return rerenderDeferredValue(value);
               },
               useTransition: function() {
                 currentHookNameInDev = "useTransition";
@@ -9298,17 +9298,17 @@
                   ReactCurrentDispatcher$1.current = prevDispatcher;
                 }
               },
-              useDebugValue: function(value2, formatterFn) {
+              useDebugValue: function(value, formatterFn) {
                 currentHookNameInDev = "useDebugValue";
                 warnInvalidHookAccess();
                 mountHookTypesDev();
                 return mountDebugValue();
               },
-              useDeferredValue: function(value2) {
+              useDeferredValue: function(value) {
                 currentHookNameInDev = "useDeferredValue";
                 warnInvalidHookAccess();
                 mountHookTypesDev();
-                return mountDeferredValue(value2);
+                return mountDeferredValue(value);
               },
               useTransition: function() {
                 currentHookNameInDev = "useTransition";
@@ -9419,17 +9419,17 @@
                   ReactCurrentDispatcher$1.current = prevDispatcher;
                 }
               },
-              useDebugValue: function(value2, formatterFn) {
+              useDebugValue: function(value, formatterFn) {
                 currentHookNameInDev = "useDebugValue";
                 warnInvalidHookAccess();
                 updateHookTypesDev();
                 return updateDebugValue();
               },
-              useDeferredValue: function(value2) {
+              useDeferredValue: function(value) {
                 currentHookNameInDev = "useDeferredValue";
                 warnInvalidHookAccess();
                 updateHookTypesDev();
-                return updateDeferredValue(value2);
+                return updateDeferredValue(value);
               },
               useTransition: function() {
                 currentHookNameInDev = "useTransition";
@@ -9540,17 +9540,17 @@
                   ReactCurrentDispatcher$1.current = prevDispatcher;
                 }
               },
-              useDebugValue: function(value2, formatterFn) {
+              useDebugValue: function(value, formatterFn) {
                 currentHookNameInDev = "useDebugValue";
                 warnInvalidHookAccess();
                 updateHookTypesDev();
                 return updateDebugValue();
               },
-              useDeferredValue: function(value2) {
+              useDeferredValue: function(value) {
                 currentHookNameInDev = "useDeferredValue";
                 warnInvalidHookAccess();
                 updateHookTypesDev();
-                return rerenderDeferredValue(value2);
+                return rerenderDeferredValue(value);
               },
               useTransition: function() {
                 currentHookNameInDev = "useTransition";
@@ -9688,17 +9688,17 @@
               child = child.sibling;
             }
           }
-          function createCapturedValueAtFiber(value2, source) {
+          function createCapturedValueAtFiber(value, source) {
             return {
-              value: value2,
+              value,
               source,
               stack: getStackByFiberInDevAndProd(source),
               digest: null
             };
           }
-          function createCapturedValue(value2, digest, stack) {
+          function createCapturedValue(value, digest, stack) {
             return {
-              value: value2,
+              value,
               source: null,
               stack: stack != null ? stack : null,
               digest: digest != null ? digest : null
@@ -9885,15 +9885,15 @@
             suspenseBoundary.lanes = rootRenderLanes;
             return suspenseBoundary;
           }
-          function throwException(root, returnFiber, sourceFiber, value2, rootRenderLanes) {
+          function throwException(root, returnFiber, sourceFiber, value, rootRenderLanes) {
             sourceFiber.flags |= Incomplete;
             {
               if (isDevToolsPresent) {
                 restorePendingUpdaters(root, rootRenderLanes);
               }
             }
-            if (value2 !== null && typeof value2 === "object" && typeof value2.then === "function") {
-              var wakeable = value2;
+            if (value !== null && typeof value === "object" && typeof value.then === "function") {
+              var wakeable = value;
               resetSuspendedComponent(sourceFiber);
               {
                 if (getIsHydrating() && sourceFiber.mode & ConcurrentMode) {
@@ -9916,7 +9916,7 @@
                   return;
                 }
                 var uncaughtSuspenseError = new Error("A component suspended while responding to synchronous input. This will cause the UI to be replaced with a loading indicator. To fix, updates that suspend should be wrapped with startTransition.");
-                value2 = uncaughtSuspenseError;
+                value = uncaughtSuspenseError;
               }
             } else {
               if (getIsHydrating() && sourceFiber.mode & ConcurrentMode) {
@@ -9927,18 +9927,18 @@
                     _suspenseBoundary.flags |= ForceClientRender;
                   }
                   markSuspenseBoundaryShouldCapture(_suspenseBoundary, returnFiber, sourceFiber, root, rootRenderLanes);
-                  queueHydrationError(createCapturedValueAtFiber(value2, sourceFiber));
+                  queueHydrationError(createCapturedValueAtFiber(value, sourceFiber));
                   return;
                 }
               }
             }
-            value2 = createCapturedValueAtFiber(value2, sourceFiber);
-            renderDidError(value2);
+            value = createCapturedValueAtFiber(value, sourceFiber);
+            renderDidError(value);
             var workInProgress2 = returnFiber;
             do {
               switch (workInProgress2.tag) {
                 case HostRoot: {
-                  var _errorInfo = value2;
+                  var _errorInfo = value;
                   workInProgress2.flags |= ShouldCapture;
                   var lane = pickArbitraryLane(rootRenderLanes);
                   workInProgress2.lanes = mergeLanes(workInProgress2.lanes, lane);
@@ -9947,7 +9947,7 @@
                   return;
                 }
                 case ClassComponent:
-                  var errorInfo = value2;
+                  var errorInfo = value;
                   var ctor = workInProgress2.type;
                   var instance = workInProgress2.stateNode;
                   if ((workInProgress2.flags & DidCapture) === NoFlags && (typeof ctor.getDerivedStateFromError === "function" || instance !== null && typeof instance.componentDidCatch === "function" && !isAlreadyFailedLegacyErrorBoundary(instance))) {
@@ -10601,7 +10601,7 @@
               context = getMaskedContext(workInProgress2, unmaskedContext);
             }
             prepareToReadContext(workInProgress2, renderLanes2);
-            var value2;
+            var value;
             var hasId;
             {
               markComponentRenderStarted(workInProgress2);
@@ -10619,7 +10619,7 @@
               }
               setIsRendering(true);
               ReactCurrentOwner$1.current = workInProgress2;
-              value2 = renderWithHooks(null, workInProgress2, Component2, props, context, renderLanes2);
+              value = renderWithHooks(null, workInProgress2, Component2, props, context, renderLanes2);
               hasId = checkDidRenderIdHook();
               setIsRendering(false);
             }
@@ -10628,7 +10628,7 @@
             }
             workInProgress2.flags |= PerformedWork;
             {
-              if (typeof value2 === "object" && value2 !== null && typeof value2.render === "function" && value2.$$typeof === void 0) {
+              if (typeof value === "object" && value !== null && typeof value.render === "function" && value.$$typeof === void 0) {
                 var _componentName = getComponentNameFromType(Component2) || "Unknown";
                 if (!didWarnAboutModulePatternComponent[_componentName]) {
                   error("The <%s /> component appears to be a function component that returns a class instance. Change %s to a class that extends React.Component instead. If you can't use a class try assigning the prototype on the function as a workaround. `%s.prototype = React.Component.prototype`. Don't use an arrow function since it cannot be called with `new` by React.", _componentName, _componentName, _componentName);
@@ -10639,7 +10639,7 @@
             if (
               // Run these checks in production only if the flag is off.
               // Eventually we'll delete this branch altogether.
-              typeof value2 === "object" && value2 !== null && typeof value2.render === "function" && value2.$$typeof === void 0
+              typeof value === "object" && value !== null && typeof value.render === "function" && value.$$typeof === void 0
             ) {
               {
                 var _componentName2 = getComponentNameFromType(Component2) || "Unknown";
@@ -10658,9 +10658,9 @@
               } else {
                 hasContext = false;
               }
-              workInProgress2.memoizedState = value2.state !== null && value2.state !== void 0 ? value2.state : null;
+              workInProgress2.memoizedState = value.state !== null && value.state !== void 0 ? value.state : null;
               initializeUpdateQueue(workInProgress2);
-              adoptClassInstance(workInProgress2, value2);
+              adoptClassInstance(workInProgress2, value);
               mountClassInstance(workInProgress2, Component2, props, renderLanes2);
               return finishClassComponent(null, workInProgress2, Component2, true, hasContext, renderLanes2);
             } else {
@@ -10669,7 +10669,7 @@
                 if (workInProgress2.mode & StrictLegacyMode) {
                   setIsStrictModeForDevtools(true);
                   try {
-                    value2 = renderWithHooks(null, workInProgress2, Component2, props, context, renderLanes2);
+                    value = renderWithHooks(null, workInProgress2, Component2, props, context, renderLanes2);
                     hasId = checkDidRenderIdHook();
                   } finally {
                     setIsStrictModeForDevtools(false);
@@ -10679,7 +10679,7 @@
               if (getIsHydrating() && hasId) {
                 pushMaterializedTreeId(workInProgress2);
               }
-              reconcileChildren(null, workInProgress2, value2, renderLanes2);
+              reconcileChildren(null, workInProgress2, value, renderLanes2);
               {
                 validateFunctionComponentInDev(workInProgress2, Component2);
               }
@@ -17334,17 +17334,17 @@
               }
               return copyWithRenameImpl(obj, oldPath, newPath, 0);
             };
-            var copyWithSetImpl = function(obj, path, index2, value2) {
+            var copyWithSetImpl = function(obj, path, index2, value) {
               if (index2 >= path.length) {
-                return value2;
+                return value;
               }
               var key = path[index2];
               var updated = isArray(obj) ? obj.slice() : assign({}, obj);
-              updated[key] = copyWithSetImpl(obj[key], path, index2 + 1, value2);
+              updated[key] = copyWithSetImpl(obj[key], path, index2 + 1, value);
               return updated;
             };
-            var copyWithSet = function(obj, path, value2) {
-              return copyWithSetImpl(obj, path, 0, value2);
+            var copyWithSet = function(obj, path, value) {
+              return copyWithSetImpl(obj, path, 0, value);
             };
             var findHook = function(fiber, id) {
               var currentHook2 = fiber.memoizedState;
@@ -17354,10 +17354,10 @@
               }
               return currentHook2;
             };
-            overrideHookState = function(fiber, id, path, value2) {
+            overrideHookState = function(fiber, id, path, value) {
               var hook = findHook(fiber, id);
               if (hook !== null) {
-                var newState = copyWithSet(hook.memoizedState, path, value2);
+                var newState = copyWithSet(hook.memoizedState, path, value);
                 hook.memoizedState = newState;
                 hook.baseState = newState;
                 fiber.memoizedProps = assign({}, fiber.memoizedProps);
@@ -17393,8 +17393,8 @@
                 }
               }
             };
-            overrideProps = function(fiber, path, value2) {
-              fiber.pendingProps = copyWithSet(fiber.memoizedProps, path, value2);
+            overrideProps = function(fiber, path, value) {
+              fiber.pendingProps = copyWithSet(fiber.memoizedProps, path, value);
               if (fiber.alternate) {
                 fiber.alternate.pendingProps = fiber.pendingProps;
               }
@@ -17541,7 +17541,7 @@
       if (true) {
         (function() {
           "use strict";
-          var React2 = require_react();
+          var React5 = require_react();
           var REACT_ELEMENT_TYPE = Symbol.for("react.element");
           var REACT_PORTAL_TYPE = Symbol.for("react.portal");
           var REACT_FRAGMENT_TYPE = Symbol.for("react.fragment");
@@ -17567,7 +17567,7 @@
             }
             return null;
           }
-          var ReactSharedInternals = React2.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+          var ReactSharedInternals = React5.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
           function error(format) {
             {
               {
@@ -17988,31 +17988,31 @@
           function isArray(a) {
             return isArrayImpl(a);
           }
-          function typeName(value2) {
+          function typeName(value) {
             {
               var hasToStringTag = typeof Symbol === "function" && Symbol.toStringTag;
-              var type = hasToStringTag && value2[Symbol.toStringTag] || value2.constructor.name || "Object";
+              var type = hasToStringTag && value[Symbol.toStringTag] || value.constructor.name || "Object";
               return type;
             }
           }
-          function willCoercionThrow(value2) {
+          function willCoercionThrow(value) {
             {
               try {
-                testStringCoercion(value2);
+                testStringCoercion(value);
                 return false;
               } catch (e) {
                 return true;
               }
             }
           }
-          function testStringCoercion(value2) {
-            return "" + value2;
+          function testStringCoercion(value) {
+            return "" + value;
           }
-          function checkKeyStringCoercion(value2) {
+          function checkKeyStringCoercion(value) {
             {
-              if (willCoercionThrow(value2)) {
-                error("The provided key is an unsupported type %s. This value must be coerced to a string before before using it here.", typeName(value2));
-                return testStringCoercion(value2);
+              if (willCoercionThrow(value)) {
+                error("The provided key is an unsupported type %s. This value must be coerced to a string before before using it here.", typeName(value));
+                return testStringCoercion(value);
               }
             }
           }
@@ -18417,11 +18417,11 @@
               return jsxWithValidation(type, props, key, false);
             }
           }
-          var jsx5 = jsxWithValidationDynamic;
-          var jsxs2 = jsxWithValidationStatic;
+          var jsx8 = jsxWithValidationDynamic;
+          var jsxs4 = jsxWithValidationStatic;
           exports.Fragment = REACT_FRAGMENT_TYPE;
-          exports.jsx = jsx5;
-          exports.jsxs = jsxs2;
+          exports.jsx = jsx8;
+          exports.jsxs = jsxs4;
         })();
       }
     }
@@ -18440,10 +18440,10 @@
   });
 
   // node_modules/@remote-ui/rpc/build/esm/memory.mjs
-  function isBasicObject(value2) {
-    if (value2 == null || typeof value2 !== "object")
+  function isBasicObject(value) {
+    if (value == null || typeof value !== "object")
       return false;
-    const prototype = Object.getPrototypeOf(value2);
+    const prototype = Object.getPrototypeOf(value);
     return prototype == null || prototype === Object.prototype;
   }
 
@@ -18685,14 +18685,14 @@
       if (currentValue === newValue && (newValue == null || typeof newValue !== "object")) {
         continue;
       }
-      const [value2, hotSwaps] = tryHotSwappingValues(currentValue, newValue);
+      const [value, hotSwaps] = tryHotSwappingValues(currentValue, newValue);
       if (hotSwaps) {
         hotSwapFunctions.push(...hotSwaps);
       }
-      if (value2 === IGNORE)
+      if (value === IGNORE)
         continue;
       hasRemoteChange = true;
-      normalizedNewProps[key] = value2;
+      normalizedNewProps[key] = value;
       if (isRemoteFragment(currentExternalValue)) {
         removeNodeFromContainer(currentExternalValue, rootInternals);
       }
@@ -18736,31 +18736,31 @@
     const result = [currentValue === newValue ? IGNORE : newValue];
     return result;
   }
-  function makeValueHotSwappable(value2, seen = /* @__PURE__ */ new Map()) {
-    const seenValue = seen.get(value2);
+  function makeValueHotSwappable(value, seen = /* @__PURE__ */ new Map()) {
+    const seenValue = seen.get(value);
     if (seenValue)
       return seenValue;
-    if (isRemoteFragment(value2)) {
-      seen.set(value2, value2);
-      return value2;
+    if (isRemoteFragment(value)) {
+      seen.set(value, value);
+      return value;
     }
-    if (Array.isArray(value2)) {
+    if (Array.isArray(value)) {
       const result = [];
-      seen.set(value2, result);
-      for (const nested of value2) {
+      seen.set(value, result);
+      for (const nested of value) {
         result.push(makeValueHotSwappable(nested, seen));
       }
       return result;
     }
-    if (isBasicObject(value2)) {
+    if (isBasicObject(value)) {
       const result = {};
-      seen.set(value2, result);
-      for (const key of Object.keys(value2)) {
-        result[key] = makeValueHotSwappable(value2[key], seen);
+      seen.set(value, result);
+      for (const key of Object.keys(value)) {
+        result[key] = makeValueHotSwappable(value[key], seen);
       }
       return result;
     }
-    if (typeof value2 === "function") {
+    if (typeof value === "function") {
       const wrappedFunction = (...args) => {
         return wrappedFunction[FUNCTION_CURRENT_IMPLEMENTATION_KEY](...args);
       };
@@ -18768,32 +18768,32 @@
         enumerable: false,
         configurable: false,
         writable: true,
-        value: value2
+        value
       });
-      seen.set(value2, wrappedFunction);
+      seen.set(value, wrappedFunction);
       return wrappedFunction;
     }
-    seen.set(value2, value2);
-    return value2;
+    seen.set(value, value);
+    return value;
   }
-  function collectNestedHotSwappableValues(value2, seen = /* @__PURE__ */ new Set()) {
-    if (seen.has(value2))
+  function collectNestedHotSwappableValues(value, seen = /* @__PURE__ */ new Set()) {
+    if (seen.has(value))
       return void 0;
-    seen.add(value2);
-    if (Array.isArray(value2)) {
-      return value2.reduce((all, element) => {
+    seen.add(value);
+    if (Array.isArray(value)) {
+      return value.reduce((all, element) => {
         const nested = collectNestedHotSwappableValues(element, seen);
         return nested ? [...all, ...nested] : all;
       }, []);
     }
-    if (isBasicObject(value2)) {
-      return Object.keys(value2).reduce((all, key) => {
-        const nested = collectNestedHotSwappableValues(value2[key], seen);
+    if (isBasicObject(value)) {
+      return Object.keys(value).reduce((all, key) => {
+        const nested = collectNestedHotSwappableValues(value[key], seen);
         return nested ? [...all, ...nested] : all;
       }, []);
     }
-    if (typeof value2 === "function") {
-      return FUNCTION_CURRENT_IMPLEMENTATION_KEY in value2 ? [value2] : void 0;
+    if (typeof value === "function") {
+      return FUNCTION_CURRENT_IMPLEMENTATION_KEY in value ? [value] : void 0;
     }
     return void 0;
   }
@@ -18977,17 +18977,17 @@
       enumerable: true
     });
   }
-  function serializeChild(value2) {
-    return value2.kind === KIND_TEXT ? {
-      id: value2.id,
-      kind: value2.kind,
-      text: value2.text
+  function serializeChild(value) {
+    return value.kind === KIND_TEXT ? {
+      id: value.id,
+      kind: value.kind,
+      text: value.text
     } : {
-      id: value2.id,
-      kind: value2.kind,
-      type: value2.type,
-      props: value2.remoteProps,
-      children: value2.children.map((child) => serializeChild(child))
+      id: value.id,
+      kind: value.kind,
+      type: value.type,
+      props: value.remoteProps,
+      children: value.children.map((child) => serializeChild(child))
     };
   }
   function serializeProp(prop) {
@@ -18996,12 +18996,12 @@
     }
     return prop;
   }
-  function serializeFragment(value2) {
+  function serializeFragment(value) {
     return {
-      id: value2.id,
-      kind: value2.kind,
+      id: value.id,
+      kind: value.kind,
       get children() {
-        return value2.children.map((child) => serializeChild(child));
+        return value.children.map((child) => serializeChild(child));
       }
     };
   }
@@ -19014,14 +19014,14 @@
     }
     return rootInternals.components.get(currentParent);
   }
-  function makeRemote(value2, id, root) {
-    Object.defineProperty(value2, "id", {
+  function makeRemote(value, id, root) {
+    Object.defineProperty(value, "id", {
       value: id,
       configurable: true,
       writable: false,
       enumerable: false
     });
-    Object.defineProperty(value2, "root", {
+    Object.defineProperty(value, "root", {
       value: root,
       configurable: true,
       writable: false,
@@ -19145,6 +19145,12 @@
 
   // node_modules/@shopify/ui-extensions/build/esm/surfaces/checkout/components/Link/Link.mjs
   var Link = createRemoteComponent("Link");
+
+  // node_modules/@shopify/ui-extensions/build/esm/surfaces/checkout/components/List/List.mjs
+  var List = createRemoteComponent("List");
+
+  // node_modules/@shopify/ui-extensions/build/esm/surfaces/checkout/components/ListItem/ListItem.mjs
+  var ListItem = createRemoteComponent("ListItem");
 
   // node_modules/@shopify/ui-extensions/build/esm/surfaces/checkout/components/Text/Text.mjs
   var Text = createRemoteComponent("Text");
@@ -19315,7 +19321,7 @@
     if (!cached) {
       var _version$split;
       const major = Number(((_version$split = import_react2.version.split(".")) === null || _version$split === void 0 ? void 0 : _version$split[0]) || 18);
-      const value2 = {
+      const value = {
         container: major >= 18 ? reconciler.createContainer(
           root,
           LEGACY_ROOT,
@@ -19337,8 +19343,8 @@
           reconciler
         }
       };
-      cache.set(root, value2);
-      cached = value2;
+      cache.set(root, value);
+      cached = value;
     }
     const {
       container,
@@ -19491,6 +19497,12 @@ ${errorInfo.componentStack}`);
     fragmentProps: ["overlay"]
   });
 
+  // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/components/List/List.mjs
+  var List2 = createRemoteReactComponent(List);
+
+  // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/components/ListItem/ListItem.mjs
+  var ListItem2 = createRemoteReactComponent(ListItem);
+
   // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/components/Text/Text.mjs
   var Text2 = createRemoteReactComponent(Text);
 
@@ -19498,7 +19510,7 @@ ${errorInfo.componentStack}`);
   var View2 = createRemoteReactComponent(View);
 
   // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/hooks/api.mjs
-  var import_react13 = __toESM(require_react(), 1);
+  var import_react15 = __toESM(require_react(), 1);
 
   // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/errors.mjs
   var CheckoutUIExtensionError = class extends Error {
@@ -19510,7 +19522,7 @@ ${errorInfo.componentStack}`);
 
   // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/hooks/api.mjs
   function useApi(_target) {
-    const api = (0, import_react13.useContext)(ExtensionApiContext);
+    const api = (0, import_react15.useContext)(ExtensionApiContext);
     if (api == null) {
       throw new CheckoutUIExtensionError("You can only call this hook when running as a checkout UI extension.");
     }
@@ -19518,24 +19530,92 @@ ${errorInfo.componentStack}`);
   }
 
   // extensions/checkout-guarantee-message/src/Checkout.jsx
-  var import_react14 = __toESM(require_react());
+  var import_react19 = __toESM(require_react());
+
+  // extensions/checkout-guarantee-message/src/components/EyewearGuarantee.js
+  var import_react16 = __toESM(require_react());
   var import_jsx_runtime4 = __toESM(require_jsx_runtime());
-  var guaranteeBlock = reactExtension("purchase.thank-you.block.render", () => /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Guarantee, {}));
-  var value = 1;
-  function Guarantee() {
-    const test = useApi();
-    return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(BlockLayout2, { border: "base", rows: ["auto", "fill"], children: [
-      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(View2, { border: "none", padding: "base", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+  function EyewearGuarantee() {
+    return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(BlockLayout2, { border: "none", rows: ["auto", "fill"], children: [
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(View2, { border: "none", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
         Image2,
         {
           source: "https://cdn.shopify.com/s/files/1/0172/4383/2374/files/Sunnies_Guarantee_resized.png?v=1709797288"
         }
       ) }),
-      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(View2, { border: "none", padding: "base", children: value == 1 ? (console.log(test), /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(Text2, { size: "base", children: [
-        "We hope you are happy with your purchase. If not, your Sunnies Flask includes a limited lifetime warranty against manufacturing defects and workmanship issues. Applies to Sunnies Club members only. ",
-        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Link2, { appearance: "monochrome", to: "https://ph.sunniesstudios.com/pages/sunnies-guarantee", children: "Learn more" })
-      ] })) : value })
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(View2, { blockAlignment: true, padding: ["base", "none", "none", "none"], children: [
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Text2, { size: "base", children: "Thank you. We hope you are happy with your purchase. If not, you\u2019re welcome to change your Sunnies Studios product* within 90 days of purchase. " }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Text2, { children: "*Terms and conditions apply " }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Link2, { appearance: "monochrome", to: "/pages/sunnies-guarantee", children: "Learn more" })
+      ] })
     ] });
+  }
+
+  // extensions/checkout-guarantee-message/src/components/BothGuarantee.js
+  var import_react17 = __toESM(require_react());
+  var import_jsx_runtime5 = __toESM(require_jsx_runtime());
+  function BothGuarantee() {
+    return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(BlockLayout2, { border: "none", rows: ["auto", "fill"], children: [
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(View2, { border: "none", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+        Image2,
+        {
+          source: "https://cdn.shopify.com/s/files/1/0172/4383/2374/files/Sunnies_Guarantee_resized.png?v=1709797288"
+        }
+      ) }),
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(View2, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(View2, { padding: ["base", "none"], children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(Text2, { size: "base", children: "We hope you are happy with your purchase. If not, you\u2019re welcome to change your Sunnies purchase:" }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(List2, { spacing: "tight", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(ListItem2, { children: [
+            "Sunnies Studios products include a 90-day guarantee. ",
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(Link2, { appearance: "monochrome", to: "/pages/sunnies-guarantee", children: "Learn more" })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(ListItem2, { children: [
+            " Sunnies Flask includes a limited lifetime warranty against manufacturing defects and workmanship issues. Applies to Sunnies Club members only. ",
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(Link2, { appearance: "monochrome", to: "/pages/sunnies-guarantee", children: "Learn more" })
+          ] })
+        ] })
+      ] })
+    ] });
+  }
+
+  // extensions/checkout-guarantee-message/src/components/FlaskGuarantee.js
+  var import_react18 = __toESM(require_react());
+  var import_jsx_runtime6 = __toESM(require_jsx_runtime());
+  function FlaskGuarantee() {
+    return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(BlockLayout2, { border: "none", rows: ["auto", "fill"], children: [
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(View2, { border: "none", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+        Image2,
+        {
+          source: "https://cdn.shopify.com/s/files/1/0172/4383/2374/files/Sunnies_Guarantee_resized.png?v=1709797288"
+        }
+      ) }),
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(View2, { border: "none", padding: ["base", "none", "none", "none"], children: /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(Text2, { size: "base", children: [
+        "We hope you are happy with your purchase. If not, your Sunnies Flask includes a limited lifetime warranty against manufacturing defects and workmanship issues. Applies to Sunnies Club members only. ",
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Link2, { appearance: "monochrome", to: "https://ph.sunniesstudios.com/pages/sunnies-guarantee", children: "Learn more" })
+      ] }) })
+    ] });
+  }
+
+  // extensions/checkout-guarantee-message/src/Checkout.jsx
+  var import_jsx_runtime7 = __toESM(require_jsx_runtime());
+  var guaranteeBlock = reactExtension("purchase.thank-you.block.render", () => /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(Guarantee, {}));
+  function Guarantee() {
+    const cartObject = useApi();
+    const lineCurrent = cartObject.lines.current;
+    let flaskCount = 0;
+    let eyewearCount = 0;
+    lineCurrent.forEach((attributes) => {
+      attributes.attributes.forEach((key) => {
+        console.log(key.key, key.value);
+        if (key.key.includes("item_type") && key.value.includes("flask")) {
+          flaskCount++;
+        } else if (key.key.includes("item_type") && !key.value.includes("flask")) {
+          eyewearCount++;
+        }
+      });
+    });
+    console.log(lineCurrent);
+    return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(View2, { border: "base", padding: "base", children: flaskCount > 0 && eyewearCount === 0 ? /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(FlaskGuarantee, {}) : flaskCount > 0 && eyewearCount > 0 ? /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(BothGuarantee, {}) : flaskCount === 0 && eyewearCount > 0 ? /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(EyewearGuarantee, {}) : "" });
   }
 })();
 //# sourceMappingURL=guarantee-message.js.map

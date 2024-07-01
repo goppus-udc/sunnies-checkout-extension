@@ -3,7 +3,7 @@
 client_id = "9a339ac6e4b7070ccfb6e6ac8247d7f1"
 name = "checkout-guarantee-message"
 handle = "checkout-guarantee-message"
-application_url = "https://outcome-bill-batch-cuisine.trycloudflare.com"
+application_url = "https://recipes-writings-requests-equipment.trycloudflare.com"
 embedded = true
 
 [build]
@@ -17,9 +17,9 @@ scopes = "write_products"
 
 [auth]
 redirect_urls = [
-  "https://outcome-bill-batch-cuisine.trycloudflare.com/auth/callback",
-  "https://outcome-bill-batch-cuisine.trycloudflare.com/auth/shopify/callback",
-  "https://outcome-bill-batch-cuisine.trycloudflare.com/api/auth/callback"
+  "https://recipes-writings-requests-equipment.trycloudflare.com/auth/callback",
+  "https://recipes-writings-requests-equipment.trycloudflare.com/auth/shopify/callback",
+  "https://recipes-writings-requests-equipment.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
