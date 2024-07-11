@@ -8,7 +8,11 @@ import {
   Image,
   useApi,
   List,
-  ListItem
+  ListItem,  
+  Button,
+  Modal,
+  TextBlock,
+  Sheet
 } from '@shopify/ui-extensions-react/checkout';
  
 import React from 'react';
@@ -23,6 +27,8 @@ export { guaranteeBlock };
 let value = 1;
 function Guarantee() {
   const cartObject = useApi();
+  
+  const {ui} = useApi();
   const lineCurrent = cartObject.lines.current;
   let flaskCount = 0;
   let eyewearCount = 0;
@@ -36,16 +42,27 @@ function Guarantee() {
       } 
     }); 
   });   
-  console.log(lineCurrent);
   return (
     <View border="base" padding="base">
+      
+            <Sheet className="testClass"
+              id="basic-sheet"
+              heading="Basic Sheet"
+              accessibilityLabel="A sheet with text content"
+              defaultOpen="true"
+            >
+              <TextBlock>
+                Basic Sheet Content
+              </TextBlock>
+            </Sheet>
+
       {
       (flaskCount > 0 && eyewearCount === 0) ? 
         <FlaskGuarantee /> :
       (flaskCount > 0 && eyewearCount > 0) ? 
         <BothGuarantee /> :
       (flaskCount === 0 && eyewearCount > 0) ? 
-        <EyewearGuarantee /> : ''
+        <EyewearGuarantee /> : <EyewearGuarantee />
       }
     </View>
   );

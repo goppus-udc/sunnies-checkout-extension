@@ -18418,10 +18418,10 @@
             }
           }
           var jsx8 = jsxWithValidationDynamic;
-          var jsxs4 = jsxWithValidationStatic;
+          var jsxs5 = jsxWithValidationStatic;
           exports.Fragment = REACT_FRAGMENT_TYPE;
           exports.jsx = jsx8;
-          exports.jsxs = jsxs4;
+          exports.jsxs = jsxs5;
         })();
       }
     }
@@ -19152,8 +19152,14 @@
   // node_modules/@shopify/ui-extensions/build/esm/surfaces/checkout/components/ListItem/ListItem.mjs
   var ListItem = createRemoteComponent("ListItem");
 
+  // node_modules/@shopify/ui-extensions/build/esm/surfaces/checkout/components/Sheet/Sheet.mjs
+  var Sheet = createRemoteComponent("Sheet");
+
   // node_modules/@shopify/ui-extensions/build/esm/surfaces/checkout/components/Text/Text.mjs
   var Text = createRemoteComponent("Text");
+
+  // node_modules/@shopify/ui-extensions/build/esm/surfaces/checkout/components/TextBlock/TextBlock.mjs
+  var TextBlock = createRemoteComponent("TextBlock");
 
   // node_modules/@shopify/ui-extensions/build/esm/surfaces/checkout/components/View/View.mjs
   var View = createRemoteComponent("View");
@@ -19503,14 +19509,22 @@ ${errorInfo.componentStack}`);
   // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/components/ListItem/ListItem.mjs
   var ListItem2 = createRemoteReactComponent(ListItem);
 
+  // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/components/Sheet/Sheet.mjs
+  var Sheet2 = createRemoteReactComponent(Sheet, {
+    fragmentProps: ["primaryAction", "secondaryAction"]
+  });
+
   // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/components/Text/Text.mjs
   var Text2 = createRemoteReactComponent(Text);
+
+  // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/components/TextBlock/TextBlock.mjs
+  var TextBlock2 = createRemoteReactComponent(TextBlock);
 
   // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/components/View/View.mjs
   var View2 = createRemoteReactComponent(View);
 
   // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/hooks/api.mjs
-  var import_react15 = __toESM(require_react(), 1);
+  var import_react17 = __toESM(require_react(), 1);
 
   // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/errors.mjs
   var CheckoutUIExtensionError = class extends Error {
@@ -19522,7 +19536,7 @@ ${errorInfo.componentStack}`);
 
   // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/hooks/api.mjs
   function useApi(_target) {
-    const api = (0, import_react15.useContext)(ExtensionApiContext);
+    const api = (0, import_react17.useContext)(ExtensionApiContext);
     if (api == null) {
       throw new CheckoutUIExtensionError("You can only call this hook when running as a checkout UI extension.");
     }
@@ -19530,10 +19544,10 @@ ${errorInfo.componentStack}`);
   }
 
   // extensions/checkout-guarantee-message/src/Checkout.jsx
-  var import_react19 = __toESM(require_react());
+  var import_react21 = __toESM(require_react());
 
   // extensions/checkout-guarantee-message/src/components/EyewearGuarantee.js
-  var import_react16 = __toESM(require_react());
+  var import_react18 = __toESM(require_react());
   var import_jsx_runtime4 = __toESM(require_jsx_runtime());
   function EyewearGuarantee() {
     return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(BlockLayout2, { border: "none", rows: ["auto", "fill"], children: [
@@ -19552,7 +19566,7 @@ ${errorInfo.componentStack}`);
   }
 
   // extensions/checkout-guarantee-message/src/components/BothGuarantee.js
-  var import_react17 = __toESM(require_react());
+  var import_react19 = __toESM(require_react());
   var import_jsx_runtime5 = __toESM(require_jsx_runtime());
   function BothGuarantee() {
     return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(BlockLayout2, { border: "none", rows: ["auto", "fill"], children: [
@@ -19579,7 +19593,7 @@ ${errorInfo.componentStack}`);
   }
 
   // extensions/checkout-guarantee-message/src/components/FlaskGuarantee.js
-  var import_react18 = __toESM(require_react());
+  var import_react20 = __toESM(require_react());
   var import_jsx_runtime6 = __toESM(require_jsx_runtime());
   function FlaskGuarantee() {
     return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(BlockLayout2, { border: "none", rows: ["auto", "fill"], children: [
@@ -19601,6 +19615,7 @@ ${errorInfo.componentStack}`);
   var guaranteeBlock = reactExtension("purchase.thank-you.block.render", () => /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(Guarantee, {}));
   function Guarantee() {
     const cartObject = useApi();
+    const { ui } = useApi();
     const lineCurrent = cartObject.lines.current;
     let flaskCount = 0;
     let eyewearCount = 0;
@@ -19614,8 +19629,20 @@ ${errorInfo.componentStack}`);
         }
       });
     });
-    console.log(lineCurrent);
-    return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(View2, { border: "base", padding: "base", children: flaskCount > 0 && eyewearCount === 0 ? /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(FlaskGuarantee, {}) : flaskCount > 0 && eyewearCount > 0 ? /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(BothGuarantee, {}) : flaskCount === 0 && eyewearCount > 0 ? /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(EyewearGuarantee, {}) : "" });
+    return /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(View2, { border: "base", padding: "base", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+        Sheet2,
+        {
+          className: "testClass",
+          id: "basic-sheet",
+          heading: "Basic Sheet",
+          accessibilityLabel: "A sheet with text content",
+          defaultOpen: "true",
+          children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(TextBlock2, { children: "Basic Sheet Content" })
+        }
+      ),
+      flaskCount > 0 && eyewearCount === 0 ? /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(FlaskGuarantee, {}) : flaskCount > 0 && eyewearCount > 0 ? /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(BothGuarantee, {}) : flaskCount === 0 && eyewearCount > 0 ? /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(EyewearGuarantee, {}) : /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(EyewearGuarantee, {})
+    ] });
   }
 })();
 //# sourceMappingURL=guarantee-message.js.map
