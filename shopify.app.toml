@@ -3,7 +3,7 @@
 client_id = "9a339ac6e4b7070ccfb6e6ac8247d7f1"
 name = "checkout-guarantee-message"
 handle = "checkout-guarantee-message"
-application_url = "https://carolina-hansen-hint-previous.trycloudflare.com"
+application_url = "https://accused-tcp-connected-blowing.trycloudflare.com"
 embedded = true
 
 [build]
@@ -17,9 +17,9 @@ scopes = "write_products"
 
 [auth]
 redirect_urls = [
-  "https://carolina-hansen-hint-previous.trycloudflare.com/auth/callback",
-  "https://carolina-hansen-hint-previous.trycloudflare.com/auth/shopify/callback",
-  "https://carolina-hansen-hint-previous.trycloudflare.com/api/auth/callback"
+  "https://accused-tcp-connected-blowing.trycloudflare.com/auth/callback",
+  "https://accused-tcp-connected-blowing.trycloudflare.com/auth/shopify/callback",
+  "https://accused-tcp-connected-blowing.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
