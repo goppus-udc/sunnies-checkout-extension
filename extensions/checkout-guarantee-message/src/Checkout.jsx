@@ -44,18 +44,6 @@ function Guarantee() {
   });   
   return (
     <View border="base" padding="base">
-      
-            <Sheet className="testClass"
-              id="basic-sheet"
-              heading="Basic Sheet"
-              accessibilityLabel="A sheet with text content"
-              defaultOpen="true"
-            >
-              <TextBlock>
-                Basic Sheet Content
-              </TextBlock>
-            </Sheet>
-
       {
       (flaskCount > 0 && eyewearCount === 0) ? 
         <FlaskGuarantee /> :
